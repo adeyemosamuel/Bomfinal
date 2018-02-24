@@ -1,0 +1,29 @@
+
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-searchbar [(ngModel)]="searchTerm" (keyup)="searchProduct($event)"></ion-searchbar>
+
+      <ion-buttons end>
+        <button ion-button (click)="selectCancel()">CANCEL</button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+
+  <ion-content padding>
+ 
+  <ion-list> 
+     
+    <ion-item style="color:limegreen; white-space:normal; font-weight:lighter; " no-lines  *ngFor="let e of data" (click)="toDescriptionView(e)" >
+       
+      {{e.productName}}
+     
+    </ion-item>
+  </ion-list>
+  <!-- <ion-buttons>
+      <button ion-button ><ion-icon name="ios-search"></ion-icon></button>
+    </ion-buttons> -->
+  
+  </ion-content>
+  

@@ -1,0 +1,101 @@
+page-home {
+  background-image: url('../assets/images/background2.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  ion-card {
+    display: block !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    border-radius: 5px !important;
+    padding: 4px !important;
+    height: 150px !important;
+  }
+  ion-content {
+    background: rgba(0, 0, 0, 0.75) !important;
+  }
+  ion-item {
+    background: transparent !important;
+  }
+  ion-content,
+  ion-list,
+  ion-item {
+    height: 100%;
+  }
+  .account {
+    background-color: rgba(0, 72, 97, 0.4);
+  }
+  .lead {
+    background-color: rgba(247, 148, 29, 0.4);
+  }
+  .loan {
+    background-color: rgba(234, 0, 27, 0.4);
+  }
+  .bank {
+    background-color: rgba(79, 193, 67, 0.4);
+  }
+  .welcome {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    text-transform: capitalize
+  }
+  .findus {
+    margin-top: 50px;
+    display: block;
+  }
+  .img_findus {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: block;
+  }
+  .img_account {
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 25px;
+  }
+  .img_loan {
+    padding: 5px;
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 25px;
+  }
+  .img_bank {
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 25px;
+  }
+  .img_lead {
+    background: transparent;
+    height: 50px;
+    width: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: 25px;
+  }
+  .text {
+    padding: 13px;
+  }
+  .find {
+    padding: 2px;
+  }
+}

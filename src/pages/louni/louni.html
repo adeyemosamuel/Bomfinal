@@ -1,0 +1,127 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>TERTIARY CLUSTER</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+          <ion-icon name="md-more"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header text-center color="primary">
+      <strong>CALCULATOR</strong>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list no-lines>
+
+        <ion-item>
+          <ion-label style="color:#4fc143; " stacked>Loan Amount(₦)</ion-label>
+          <ion-input [(ngModel)]="p" type="number" name="p"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label style="color:#4fc143;" stacked>Interest Rate(%)</ion-label>
+          <ion-input disabled="true" [(ngModel)]="r" type="number" name="r"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label style="color:#4fc143;" stacked>Duration</ion-label>
+          <ion-input [(ngModel)]="n" type="number" name="n"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list radio-group [(ngModel)]="nRadio" no-lines>
+        <ion-item>
+          <ion-label>Months</ion-label>
+          <ion-radio value="month"></ion-radio>
+        </ion-item>
+        <!-- <ion-item>
+                            <ion-label>Month</ion-label>
+                            <ion-radio value="month"></ion-radio>
+                          </ion-item> -->
+      </ion-list>
+
+      <button ion-button full class="calculate" (click)="calculateInterest()">Calculate</button>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="isSubmitted">
+
+    <ion-card class="result">
+      <ion-card-header text-center color="primary">
+        RESULTS
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-grid class="grid">
+          <ion-row class="row1">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">Loan Disbursed(₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{LD | number}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="row2">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">Total Interest(₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{TI | number}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="row3">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">Monthly Repayment(₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{MR | number}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="row4">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">
+                Total Repayment(₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{TP | number}}</p>
+            </ion-col>
+          </ion-row>
+
+          <!-- <ion-row class="row5">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">Outstanding Repayment(₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{TOR}}</p>
+            </ion-col>
+          </ion-row> -->
+
+          <ion-row class="row5">
+            <ion-col width-22>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">Flat fee payable upfront (₦)</p>
+            </ion-col>
+            <ion-col>
+              <p text-center style="font-weight: light; font-size: 15px; color: white;">{{FR | number}}</p>
+            </ion-col>
+          </ion-row> 
+
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+</ion-content>

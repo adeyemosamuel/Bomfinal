@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>LOCATE US</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="locator">
+      <ion-segment-button value="atm">
+        ATM
+      </ion-segment-button>
+      <ion-segment-button value="branches">
+        ECs
+      </ion-segment-button>
+    </ion-segment>
+
+  </ion-toolbar>
+
+</ion-header> 
+
+<ion-content>
+
+    <!-- <div> -->
+        <!-- <ion-segment [(ngModel)]="locator">
+          <ion-segment-button value="atm">
+            ATM
+          </ion-segment-button>
+          <ion-segment-button value="branches">
+            ECs
+          </ion-segment-button>
+        </ion-segment> -->
+      <!-- </div> -->
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar>
+
+ 
+ 
+  <div [ngSwitch]="locator">
+    <ion-list *ngSwitchCase="'atm'">
+
+      <ion-item no-lines *ngFor="let atmlocation of data">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              <ion-avatar item-start>
+                <img src="assets/images/logo2.PNG">
+              </ion-avatar>
+            </ion-col>
+            <ion-col col-8>
+              <strong style="white-space:normal">{{atmlocation.ecName}}</strong>
+              <h2>{{atmlocation.region}}</h2>
+              <p style="white-space:normal">{{atmlocation.atmAdress}}</p>
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button clear item-end icon-only (click)=" openPost(atmlocation)">
+          <img  style="width:30px; height:30px;"  src="assets/get.png">
+                  </button>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-list *ngSwitchCase="'branches'">
+      <ion-item no-lines *ngFor="let branch of branches">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              <ion-avatar item-start>
+                <img src="assets/images/logo2.PNG">
+              </ion-avatar>
+            </ion-col>
+            <ion-col col-8>
+              <strong style="white-space:normal">{{branch.ecbName}}</strong>
+              <h2>{{branch.state}}</h2>
+              <p style="white-space:normal">{{branch.ecbAdress}}</p>
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button clear item-end icon-only (click)="openBranch(branch)">
+          <img style="width:30px; height:30px;"  src="assets/get.png">
+                  </button> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+</ion-content>

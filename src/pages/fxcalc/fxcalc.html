@@ -1,0 +1,169 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>FOREIGN CURRENCY DEPOSIT</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card class="card">
+    <ion-card-header text-center color="primary">
+      <strong>CALCULATOR</strong>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list no-lines>
+
+        <ion-item>
+          <ion-label style="color:#4fc143">Tenure</ion-label>
+          <ion-select [(ngModel)]="tenure">
+            <ion-option value="tenure1">30 Days</ion-option>
+            <ion-option value="tenure2">60 Days</ion-option>
+            <ion-option value="tenure3">90 Days</ion-option>
+            <ion-option value="tenure4">180 Days</ion-option>
+            <ion-option value="tenure5">270 Days</ion-option>
+            <ion-option value="tenure6">365 Days</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label style="color:#4fc143">Deposit Range</ion-label>
+          <ion-select [(ngModel)]="range">
+            <ion-option value="$100k - $499k"> $100k - $499k</ion-option>
+            <ion-option value="$500k - $999k"> $500k -  $999k</ion-option>
+            <ion-option value="$1M - $9.99M"> $1M -  $9.99M</ion-option>
+            <ion-option value="$10M Above"> $10M Above</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+
+          <ion-label style="color:#4fc143; " stacked>Deposit Amount($)</ion-label>
+          <ion-input [(ngModel)]="p" type="number" name="p"></ion-input>
+        </ion-item>
+        <p ion-text text-center [hidden]="( (p == null || range == null) || (  (range == '$100k - $499k' && p >= 100000 && p <=499000)
+          || (range == '$500k - $999k' && p >= 500000 && p <=999000) || (range == '$1M - $9.99M' && p >= 1000000 && p <=9999999) || (range == '$10M Above' && p >= 10000000)
+          ))" style="color: red">Valid Range : {{range}}</p>
+
+        <ion-item>
+          <ion-label style="color:#4fc143;" stacked>Interest Rate(%)</ion-label>
+          <ion-input [(ngModel)]="r" type="number" name="r" value=""> </ion-input>
+        </ion-item>
+        <p ion-text text-center [hidden]="( (r == null || range == null || tenure == null) ||  (
+            (tenure == 'tenure1' && range == '$100k - $499k' && r >= 0.5 && r <=0.8 ) || 
+            (tenure == 'tenure1' && range == '$500k - $999k' && r >= 0.90 && r <=1.20 ) ||
+            (tenure == 'tenure1' && range == '$1M - $9.99M' && r >= 1.50 && r <=2.75 )  ||
+            (tenure == 'tenure1' && range == '$10M Above' && r >= 3.00 && r <=3.25 ) ||
+            (tenure == 'tenure2' && range == '$100k - $499k' && r >= 0.60 && r <=1.0 ) ||
+            (tenure == 'tenure2' && range == '$500k - $999k' && r >= 0.20 && r <=1.5 ) ||
+            (tenure == 'tenure2' && range == '$1M - $9.99M' && r >= 2.00 && r <=3.25 ) ||
+            (tenure == 'tenure2' && range == '$10M Above' && r >= 3.50 && r <=3.75 ) ||
+            (tenure == 'tenure3' && range == '$100k - $499k' && r >= 0.75 && r <=1.20 ) ||
+            (tenure == 'tenure3' && range == '$500k - $999k' && r >= 1.25 && r <=1.75 ) ||
+            (tenure == 'tenure3' && range == '$1M - $9.99M' && r >= 2.00 && r <=4.25 ) ||
+            (tenure == 'tenure3' && range == '$10M Above' && r >= 4.50 && r <=4.75 ) ||
+            (tenure == 'tenure4' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+            (tenure == 'tenure4' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+            (tenure == 'tenure4' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+            (tenure == 'tenure4' && range == '$10M Above' && r >= 5.25 && r <=5.50) ||
+            (tenure == 'tenure5' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+            (tenure == 'tenure5' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+            (tenure == 'tenure5' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+            (tenure == 'tenure5' && range == '$10M Above' && r >= 5.25 && r <=5.50) ||
+            (tenure == 'tenure6' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+            (tenure == 'tenure6' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+            (tenure == 'tenure6' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+            (tenure == 'tenure6' && range == '$10M Above' && r >= 5.25 && r <=5.50) 
+                       ))" style="color: red">Valid Interest Rate : {{ 
+                        (tenure == 'tenure1' && range == '$100k - $499k')? '0.5 - 0.8' : 
+                        (tenure == 'tenure1' && range == '$500k - $999k')? '0.9 - 1.20' :
+                         (tenure == 'tenure1' && range == '$1M - $9.99M') ? '1.5 - 2.75' :
+                     (tenure == 'tenure1' && range == '$10M Above' )? '3.0 - 3.25' :
+                     (tenure == 'tenure2' && range == '$100k - $499k' )? '0.6 - 1.0' :
+                     (tenure == 'tenure2' && range == '$500k - $999k' ) ? '0.2 - 1.5' :
+                     (tenure == 'tenure2' && range == '$1M - $9.99M' ) ? '2.0 - 3.25' :
+                     (tenure == 'tenure2' && range == '$10M Above') ? '3.5 - 3.75' :
+                     (tenure == 'tenure3' && range == '$100k - $499k' ) ? '0.75 - 0.75' :
+                     (tenure == 'tenure3' && range == '$500k - $999k'  ) ? '1.25 - 1.75' :
+                     (tenure == 'tenure3' && range == '$1M - $9.99M' ) ? '2.0 - 4.25' :
+                     (tenure == 'tenure3' && range == '$10M Above' ) ? '4.5 - 4.75' :
+                     (tenure == 'tenure4' && range == '$100k - $499k') ? '1.0 - 1.75' :
+                     (tenure == 'tenure4' && range == '$500k - $999k'  ) ? '2.0 - 2.25' :
+                     (tenure == 'tenure4' && range == '$1M - $9.99M' ) ? '3.0 - 5.0' :
+                     (tenure == 'tenure4' && range == '$10M Above' ) ? '5.25 - 5.50' :
+                     (tenure == 'tenure5' && range == '$100k - $499k' ) ? '1 - 1.75':
+                     (tenure == 'tenure5' && range == '$500k - $999k' ) ? '2.00 - 2.5' :
+                     (tenure == 'tenure5' && range == '$1M - $9.99M' ) ? '3.0 - 5.0' :
+                     (tenure == 'tenure5' && range == '$10M Above') ? '5.25 - 5.50' :
+                     (tenure == 'tenure6' && range == '$100k - $499k' ) ? '1 - 1.75' :
+                     (tenure == 'tenure6' && range == '$500k - $999k' ) ? '2.0 - 2.5' :
+                     (tenure == 'tenure6' && range == '$1M - $9.99M' ) ? '3.0 - 5.0' :
+                     (tenure == 'tenure6' && range == '$10M Above' )  ? '5.25 - 5.50' :''
+                      }} </p>
+
+
+      </ion-list>
+      <button ion-button full class="calculate" [disabled]="!((r != null || range != null || tenure != null || p!=null)
+     &&  (
+        (tenure == 'tenure1' && range == '$100k - $499k' && r >= 0.5 && r <=0.8 ) || 
+        (tenure == 'tenure1' && range == '$500k - $999k' && r >= 0.90 && r <=1.20 ) ||
+        (tenure == 'tenure1' && range == '$1M - $9.99M' && r >= 1.50 && r <=2.75 )  ||
+        (tenure == 'tenure1' && range == '$10M Above' && r >= 3.00 && r <=3.25 ) ||
+        (tenure == 'tenure2' && range == '$100k - $499k' && r >= 0.60 && r <=1.0 ) ||
+        (tenure == 'tenure2' && range == '$500k - $999k' && r >= 0.20 && r <=1.5 ) ||
+        (tenure == 'tenure2' && range == '$1M - $9.99M' && r >= 2.00 && r <=3.25 ) ||
+        (tenure == 'tenure2' && range == '$10M Above' && r >= 3.50 && r <=3.75 ) ||
+        (tenure == 'tenure3' && range == '$100k - $499k' && r >= 0.75 && r <=1.20 ) ||
+        (tenure == 'tenure3' && range == '$500k - $999k' && r >= 1.25 && r <=1.75 ) ||
+        (tenure == 'tenure3' && range == '$1M - $9.99M' && r >= 2.00 && r <=4.25 ) ||
+        (tenure == 'tenure3' && range == '$10M Above' && r >= 4.50 && r <=4.75 ) ||
+        (tenure == 'tenure4' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+        (tenure == 'tenure4' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+        (tenure == 'tenure4' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+        (tenure == 'tenure4' && range == '$10M Above' && r >= 5.25 && r <=5.50 )||
+        (tenure == 'tenure5' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+        (tenure == 'tenure5' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+        (tenure == 'tenure5' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+        (tenure == 'tenure5' && range == '$10M Above' && r >= 5.25 && r <=5.50) ||
+        (tenure == 'tenure6' && range == '$100k - $499k' && r >= 1.00 && r <=1.75 ) ||
+        (tenure == 'tenure6' && range == '$500k - $999k' && r >= 2.00 && r <=2.5 ) ||
+        (tenure == 'tenure6' && range == '$1M - $9.99M' && r >= 3.0 && r <=5.0 ) ||
+        (tenure == 'tenure6' && range == '$10M Above' && r >= 5.25 && r <=5.50)) 
+       && ( (range == '$100k - $499k' && p >= 100000 && p <=499000) || (range == '$500k - $999k' && p >= 500000 && p <=999000) || (range == '$1M - $9.99M' && p >= 1000000 && p <=9999999) || (range == '$10M Above' && p >= 10000000)
+                   ))" (click)="calculateInterest()">Calculate</button>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="isSubmitted">
+    <ion-card>
+      <ion-card-header  text-center color="primary">RESULT</ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="row1">
+            <ion-col col-6>
+              <p>Interest</p>
+            </ion-col>
+            <ion-col col-6>
+              <p>${{SI | number}}</p> 
+            </ion-col>
+          </ion-row>
+          <ion-row class="row2">
+            <ion-col col-6>
+              <p>Nominal Interest</p>
+            </ion-col>
+            <ion-col col-6>
+              <p>${{NI | number}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+
+</ion-content>

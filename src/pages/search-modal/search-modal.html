@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar>
+
+     <!-- <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar> -->
+    <ion-buttons end>
+      <button ion-button (click)="selectCancel()">CANCEL</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+</ion-content>

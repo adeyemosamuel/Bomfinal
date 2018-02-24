@@ -1,0 +1,35 @@
+<ion-content padding fullscreen>
+
+  <ion-list no-lines>
+    <ion-item>
+      <img class="img" src="assets/images/check-mark.png">
+      <p text-center color="primary" id="goodMsg">Success!</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked text-center>Firstname</ion-label>
+      <ion-input [(ngModel)]="firstName" disabled="true" text-center>{{firstName}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked text-center>Account number</ion-label>
+      <ion-input [(ngModel)]="accountNo" disabled="true" text-center>{{accountNo}}</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button outline id="newAccount" (click)="openNew()">Open a new account</button>
+    </ion-item>
+
+    <ion-item id="bottom-button">
+      <button ion-button item-left clear (click)="goHome()">
+        Return to home
+      </button>
+
+      <button ion-button item-right clear (click)="logOut()">
+        Logout
+      </button>
+    </ion-item>
+
+  </ion-list>
+    
+</ion-content>

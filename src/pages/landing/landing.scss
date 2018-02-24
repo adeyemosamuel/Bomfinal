@@ -1,0 +1,41 @@
+page-landing { background-image: url('../assets/internet.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    ion-content {
+        background-color: rgba(6,6,6,0.4) !important;
+    }
+
+.landing{
+    margin-top:300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+ 
+
+.item1{
+    border: 1px solid #4fc143;
+    border-radius: 20px;
+    background-color: rgba(79,193,67,0.75);
+}
+
+.item2{
+    border: 1px solid #4fc143;
+    border-radius: 20px;
+    background-color: rgba(79,193,67,0.75);
+    margin-top: 30px
+}
+
+
+.button {
+    margin-right: auto;
+    margin-left: auto;
+   margin-top: 30px;
+    display: block;
+}
+
+
+
+
+}

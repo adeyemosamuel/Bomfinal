@@ -1,0 +1,80 @@
+<ion-header>
+
+  <!--<ion-toolbar color="primary">-->
+    <ion-navbar color="primary">
+      <ion-title>New Account</ion-title>
+
+      <ion-buttons end>
+        <button ion-button icon-only (click)="popover($event)">
+          <ion-icon name="md-more"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  <!--</ion-toolbar>-->
+
+</ion-header>
+
+
+<ion-content no-padding fullscreen>
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label floating>* Title</ion-label>
+      <ion-select [(ngModel)]="title">
+        <ion-option *ngFor="let t of titleData" [value]="t.value">{{t.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* First Name</ion-label>
+      <ion-input [(ngModel)]="firstName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Middle Name</ion-label>
+      <ion-input [(ngModel)]="middleName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Last Name</ion-label>
+      <ion-input [(ngModel)]="lastName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Gender</ion-label>
+      <ion-select [(ngModel)]="gender">
+        <ion-option value="M">MALE</ion-option>
+        <ion-option value="F">FEMALE</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Marital Status</ion-label>
+      <ion-select [(ngModel)]="relStatus">
+        <ion-option *ngFor="let r of relStatusData" [value]="r.value">{{r.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Occupation</ion-label>
+      <ion-input [(ngModel)]="occup" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Date of Birth</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="MMM DD YYYY" [(ngModel)]="dob"></ion-datetime>
+    </ion-item>
+
+    <!-- <ion-item hideWhen="ios" (click)="selectDate()" class="datePicker">
+      <h3>* Date of Birth</h3>
+      <p>&nbsp; {{dob}}</p>
+    </ion-item> -->
+
+    <ion-item>
+      <button ion-button full large id="next-button" (click)="next()">Next</button>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

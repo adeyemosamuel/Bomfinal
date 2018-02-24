@@ -1,0 +1,32 @@
+page-bio {
+  background-color: white; // background: $bg-image;
+  // background-size: cover;
+  ion-header {
+    background-color: white;
+  }
+  ion-input,
+  ion-select,
+  ion-datetime {
+    border-bottom: 1px solid map-get($colors, primary);
+  }
+  .datePicker {
+    border-bottom: 1px solid map-get($colors, primary) !important;
+    p {
+      font-size: 18px !important;
+      color: black !important;
+    }
+  }
+  ion-label,
+  h3 {
+    color: map-get($colors, primary);
+  }
+  #next-button {
+    text-transform: capitalize;
+    height: 40px;
+    font-size: 16px;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

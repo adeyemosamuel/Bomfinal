@@ -1,0 +1,41 @@
+<ion-content no-padding class="page-login" fullscreen>
+
+  <ion-list no-lines>
+
+    <div class="first-div">
+      <ion-item>
+          <img class="img" src="assets/images/hb-logo.png"/>  
+      </ion-item>
+
+      <ion-item>
+        <button ion-button clear id="register" (click)="register()" item-right>
+          New Device? &nbsp; <b color="primary">Register</b>&nbsp;
+          <ion-icon name="md-arrow-dropright" icon-right color="primary"></ion-icon>
+        </button>
+      </ion-item>
+    </div>
+
+    <div class="second-div">
+      <ion-item>
+        <ion-input placeholder="username" type="text" [(ngModel)]="username" (keyup)="validateInput()" text-left></ion-input>
+        <ion-icon name="person" item-right color="primary"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input placeholder="password" type="password" [(ngModel)]="password" (keyup)="validateInput()" text-left></ion-input>
+        <ion-icon name="md-lock" item-right color="primary"></ion-icon>
+      </ion-item>
+    </div>
+
+    <div class="last-div">
+      <ion-item>
+        <button ion-button id="login" (click)="login()" [disabled]="disableButton">
+          Login &nbsp;
+          <ion-icon name="md-arrow-dropright" icon-right></ion-icon>
+        </button>
+      </ion-item>
+    </div>
+      
+  </ion-list>
+
+</ion-content>

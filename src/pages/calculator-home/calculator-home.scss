@@ -1,0 +1,150 @@
+page-calculator-home {
+  background-image: url('../assets/images/lady.jpg') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  ion-content {
+    background-color: rgba(6, 6, 6, 0.75) !important;
+  }
+  .main {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: transparent !important;
+  }
+  ion-icon {
+    padding: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 30px;
+    display: block;
+  }
+  .card1 {
+    border-radius: 15px;
+    background-color: #32db28;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card2 {
+    border-radius: 15px;
+    background-color: #3091b2;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card3 {
+    border-radius: 15px;
+    background-color: #3b5998;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card4 {
+    border-radius: 15px;
+    background-color: #3f51b5;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card5 {
+    border-radius: 15px;
+    background-color: #f40717;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card6 {
+    border-radius: 15px;
+    background-color: #f6ac19;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card7 {
+    border-radius: 15px;
+    background-color: #485136;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card8 {
+    border-radius: 15px;
+    background-color: #d0d0d0;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card9 {
+    border-radius: 15px;
+    background-color: #151a21;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card10 {
+    border-radius: 15px;
+    background-color: #4fc143;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card11 {
+    border-radius: 15px;
+    background-color: #4a3022;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card12 {
+    border-radius: 15px;
+    background-color: #3b5998;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card13 {
+    border-radius: 15px;
+    background-color: #8d6dc4;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card14 {
+    border-radius: 15px;
+    background-color: #3b5998;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  .card15 {
+    border-radius: 15px;
+    background-color: #3b5998;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    display: block;
+  }
+  [ion-fixed] {
+    height: 100%;
+  }
+}
+
+.toolbar-background {
+  background: map-get($colors, primary);
+  color: white;
+}

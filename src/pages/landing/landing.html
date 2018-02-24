@@ -1,0 +1,19 @@
+<ion-content padding>
+   <div class="landing">
+      <ion-item no-lines  style="color:white"  class="item1">
+        <ion-icon color="money" name="person" item-start ></ion-icon>
+        <ion-input  [(ngModel)]="Username" placeholder="Enter Username" type="text"></ion-input>
+      </ion-item>
+    </div>
+
+    <div>
+
+      <ion-item no-lines style="color:white" class="item2">
+        <ion-icon color="money" name="lock" item-start ></ion-icon>
+        <ion-input [(ngModel)]="Password" placeholder="Enter your password" type="password"></ion-input>
+      </ion-item>
+    </div>
+
+  <button ion-button round block tappable color="primary" [disabled]="!Username || !Password" [class.disabled]="!Username || !Password" (click)="Login()">Login</button> 
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closePad()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Signature Pad</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="page-signature">
+
+  <ion-list>
+    <ion-item>
+      <div class="signature-pad">
+        <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button item-right clear (click)="save()">Save</button>
+      <button ion-button item-left clear (click)="clear()">Clear</button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,282 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>LOCAL CURRENCY DEPOSIT</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card class="card">
+    <ion-card-header text-center color="priary">
+      <strong>CALCULATOR</strong>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list no-lines>
+
+        <ion-item>
+          <ion-label style="color:#4fc143">Tenure</ion-label>
+          <ion-select [(ngModel)]="tenure">
+              <ion-option value="tenure0">Call</ion-option>
+            <ion-option value="tenure1">30 Days</ion-option>
+            <ion-option value="tenure2">60 Days</ion-option>
+            <ion-option value="tenure3">90 Days</ion-option>
+            <ion-option value="tenure4">180 Days</ion-option>
+            <ion-option value="tenure5">360 Days</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item *ngIf="tenure =='tenure0'">
+            <ion-label style="color:#4fc143">Enter Tenure Value</ion-label>
+            <ion-input  [(ngModel)]="u" [max]="29" placeholder="Days" type="number" name="p"></ion-input>
+          </ion-item>
+
+        <ion-item>
+          <ion-label style="color:#4fc143">Deposit Range(₦)</ion-label>
+          <ion-select [(ngModel)]="range">
+            <ion-option value="250000- 500000">250,000- 500,000</ion-option>
+            <ion-option value="500000- 1000000"> 500,000- 1,000,000</ion-option>
+            <ion-option value="1000000- 3000000"> 1,000,000- 3,000,000</ion-option>
+            <ion-option value="3000000- 5000000"> 3,000,000- 5,000,000</ion-option>
+            <ion-option value="5000000- 10000000"> 5,000,000- 10,000,000</ion-option>
+            <ion-option value="10000000- 50000000"> 10,000,000- 50,000,000</ion-option>
+            <ion-option value="50000000- 100000000">50,000,000- 100,000,000</ion-option>
+            <ion-option value="100000000- 200000000">100,000,000- 200,000,000</ion-option>
+            <ion-option value="200Above">200,000,000 & Above</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label style="color:#4fc143; " stacked>Deposit Amount(₦)</ion-label>
+          <ion-input [(ngModel)]="p" type="number" name="p"></ion-input>
+        </ion-item>
+        <p ion-text text-center [hidden]="( (p == null || range == null) || (  (range == '250000- 500000' && p >= 250000 && p <=500000)
+        || (range == '500000- 1000000' && p >= 500000 && p <=1000000) || (range == '1000000- 3000000' && p >= 1000000 && p <=3000000) || 
+        (range == '3000000- 5000000' && p >= 3000000 && p <=5000000)|| (range == '5000000- 10000000' && p >= 5000000 && p <=10000000) ||
+         (range == '10000000- 50000000' && p >= 10000000 && p <=50000000)|| (range == '50000000- 100000000' && p >= 50000000 && p <=100000000)||
+          (range == '100000000- 200000000' && p >= 100000000 && p <=200000000)||(range == '200Above' && p >= 200)
+        ))" style="color: red">Valid Range : {{range}}</p>
+
+        <ion-item>
+          <ion-label style="color:#4fc143;" stacked>Interest Rate(%)</ion-label>
+          <ion-input [(ngModel)]="r" type="number" name="r" value=""> </ion-input>
+        </ion-item>
+        <p ion-text text-center  
+        [hidden]="( (r == null || range == null || tenure == null) ||  (
+          (tenure == 'tenure0'  && u < 30 && range == '250000- 500000' && r==1.00 ) || 
+          (tenure == 'tenure0'  && u < 30 && range == '500000- 1000000' && r==1.50 ) ||
+          (tenure == 'tenure0'  && u < 30 && range == '1000000- 3000000' && r==2.00 )  ||
+          (tenure == 'tenure0'  && u < 30 && range == '3000000- 5000000' && r==2.50 ) ||
+          (tenure == 'tenure0'  && u < 30 && range == '5000000- 10000000' && r==3.00 ) ||
+          (tenure == 'tenure0'  && u < 30 && range == '10000000- 50000000' && r==4.00) ||
+          (tenure == 'tenure0'  && u < 30 && range == '50000000- 100000000' && r==6.00 ) ||
+          (tenure == 'tenure0'  && u < 30 && range == '100000000- 200000000' && r==7.50) ||
+          (tenure == 'tenure0'  && u < 30 && range == '200Above' && r==8.50) ||
+ (tenure == 'tenure1' && range == '250000- 500000' && r==4.25) || 
+ (tenure == 'tenure1' && range == '500000- 1000000' && r==4.25) ||
+ (tenure == 'tenure1' && range == '1000000- 3000000' && r >= 4.25 && r <=4.25 )  ||
+ (tenure == 'tenure1' && range == '3000000- 5000000' && r >= 4.25 && r <=4.75 ) ||
+ (tenure == 'tenure1' && range == '5000000- 10000000' && r >= 4.75 && r <=5.75 ) ||
+ (tenure == 'tenure1' && range == '10000000- 50000000' && r >= 6.00 && r <=9.00 ) ||
+ (tenure == 'tenure1' && range == '50000000- 100000000' && r >= 9.75 && r <=15.00 ) ||
+ (tenure == 'tenure1' && range == '100000000- 200000000' && r >= 11.25 && r <=12.25 ) ||
+ (tenure == 'tenure1' && range == '200Above' && r >= 12.50 && r <=13.00 ) ||
+ (tenure == 'tenure2' && range == '250000- 500000' && r==4.25 ) || 
+ (tenure == 'tenure2' && range == '500000- 1000000' && r==4.25 ) ||
+ (tenure == 'tenure2' && range == '1000000- 3000000' && r >= 4.25 && r <=4.25 )  ||
+ (tenure == 'tenure2' && range == '3000000- 5000000' && r >= 4.50 && r <=5.00) ||
+ (tenure == 'tenure2' && range == '5000000- 10000000' && r >= 5.00 && r <=6.00 ) ||
+ (tenure == 'tenure2' && range == '10000000- 50000000' && r >= 6.25 && r <=9.25 ) ||
+ (tenure == 'tenure2' && range == '50000000- 100000000' && r >=10.00 && r <=10.75 ) ||
+ (tenure == 'tenure2' && range == '100000000- 200000000' && r >= 11.50 && r <=12.50 ) ||
+ (tenure == 'tenure2' && range == '200Above' && r >= 12.75 && r <=14.25 ) ||
+ (tenure == 'tenure3' && range == '250000- 500000' && r==4.25) || 
+ (tenure == 'tenure3' && range == '500000- 1000000' && r==4.25) ||
+ (tenure == 'tenure3' && range == '1000000- 3000000' && r >= 4.25 && r <=4.50 )  ||
+ (tenure == 'tenure3' && range == '3000000- 5000000' && r >= 4.75 && r <=5.25 ) ||
+ (tenure == 'tenure3' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+ (tenure == 'tenure3' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+ (tenure == 'tenure3' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+ (tenure == 'tenure3' && range == '100000000- 200000000' && r >= 13.00 && r <=14.50 ) ||
+ (tenure == 'tenure3' && range == '200Above' && r >= 14.50 && r <=16.00 ) ||
+ (tenure == 'tenure4' && range == '250000- 500000' && r==4.25 ) || 
+ (tenure == 'tenure4' && range == '500000- 1000000' && r==4.25) ||
+ (tenure == 'tenure4' && range == '1000000- 3000000' && r >= 4.25 && r <=4.50 )  ||
+ (tenure == 'tenure4' && range == '3000000- 5000000' &&  r >= 4.75 && r <=5.25 ) ||
+ (tenure == 'tenure4' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+ (tenure == 'tenure4' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+ (tenure == 'tenure4' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+ (tenure == 'tenure4' && range == '100000000- 200000000' && r >= 11.25 && r <=12.50 ) ||
+ (tenure == 'tenure4' && range == '200Above' && r >= 12.50 && r <=14.00 ) ||
+ (tenure == 'tenure5' && range == '250000- 500000' && r==4.25 ) || 
+ (tenure == 'tenure5' && range == '500000- 1000000' && r==4.25) ||
+ (tenure == 'tenure5' && range == '1000000- 3000000' &&  r >= 4.25 && r <=4.50 )  ||
+ (tenure == 'tenure5' && range == '3000000- 5000000' &&  r >= 4.75 && r <=5.25 ) ||
+ (tenure == 'tenure5' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+ (tenure == 'tenure5' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+ (tenure == 'tenure5' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+ (tenure == 'tenure5' && range == '100000000- 200000000' && r >= 11.25 && r <=12.50 ) ||
+ (tenure == 'tenure5' && range == '200Above' && r >= 12.50 && r <=14.00 ) 
+            ))" style="color: red">Valid Interest Rate :        {{ 
+              (tenure == 'tenure0'  && u < 30 && range == '250000- 500000') ?'1.00' :
+              (tenure == 'tenure0'  && u < 30 && range == '500000- 1000000') ?'1.50':
+              (tenure == 'tenure0'  && u < 30 && range == '1000000- 3000000') ?'2.00':
+              (tenure == 'tenure0'  && u < 30 && range == '3000000- 5000000')?'2.50':
+              (tenure == 'tenure0'  && u < 30 && range == '5000000- 10000000')?'3.00':
+              (tenure == 'tenure0'  && u < 30 && range == '10000000- 50000000')?'4.00':
+              (tenure == 'tenure0'  && u < 30 && range == '50000000- 100000000')?'6.00':
+              (tenure == 'tenure0'  && u < 30 && range == '100- 200')?'7.50':
+              (tenure == 'tenure0'  && u < 30 && range == '200Above')?'8.50':
+             (tenure == 'tenure1' && range == '250000- 500000')?'4.25':
+             (tenure == 'tenure1' && range == '500000- 1000000')?'4.25':
+             (tenure == 'tenure1' && range == '1000000- 3000000')?'4.25-4.25':
+             (tenure == 'tenure1' && range == '3000000- 5000000')?'4.25-4.75':
+             (tenure == 'tenure1' && range == '5000000- 10000000')?'4.75-5.75':
+             (tenure == 'tenure1' && range == '10000000- 50000000')?'6.00-9.00': 
+             (tenure == 'tenure1' && range == '50000000- 100000000')?'9.75-10.50':
+             (tenure == 'tenure1' && range == '100000000- 200000000')?'11.25-12.25':
+             (tenure == 'tenure1' && range == '200Above')?'12.50-13.00':
+             (tenure == 'tenure2' && range == '250000- 500000')?'4.25':
+             (tenure == 'tenure2' && range == '500000- 1000000')?'4.25':
+             (tenure == 'tenure2' && range == '1000000- 3000000')?'4.25-4.25':
+             (tenure == 'tenure2' && range == '3000000- 5000000')?'4.50-5.00':
+             (tenure == 'tenure2' && range == '5000000- 10000000')?'5.00-6.00':
+             (tenure == 'tenure2' && range == '10000000- 50000000')?'6.25-9.25':
+             (tenure == 'tenure2' && range == '50000000- 100000000')?'10.00-10.75':
+             (tenure == 'tenure2' && range == '100000000- 200000000')?'11.50-12.50':
+             (tenure == 'tenure2' && range == '200Above')?'12.75-14.25':
+             (tenure == 'tenure3' && range == '250000- 500000')? '4.25':
+             (tenure == 'tenure3' && range == '500000- 1000000')?'4.25':
+             (tenure == 'tenure3' && range == '1000000- 3000000')?'4.25-4.50':
+             (tenure == 'tenure3' && range == '3000000- 5000000')?'4.75-5.25':
+             (tenure == 'tenure3' && range == '5000000- 10000000')?'5.25-6.25':
+             (tenure == 'tenure3' && range == '10000000- 50000000')?'6.75-9.75':
+             (tenure == 'tenure3' && range == '50000000- 100000000')?'10.75-11.25':
+             (tenure == 'tenure3' && range == '100000000- 200000000')?'13.00-14.50':
+             (tenure == 'tenure3' && range == '200Above')?'14.50-16.00':
+             (tenure == 'tenure4' && range == '250000- 500000') ?'4.25':
+             (tenure == 'tenure4' && range == '500000- 1000000')?'4.25':
+             (tenure == 'tenure4' && range == '1000000- 3000000')?'4.25-4.50':
+             (tenure == 'tenure4' && range == '3000000- 5000000')?'4.75-5.25':
+             (tenure == 'tenure4' && range == '5000000- 10000000')?'5.25-6.25':
+             (tenure == 'tenure4' && range == '10000000- 50000000')?'6.75-9.75':
+             (tenure == 'tenure4' && range == '50000000- 100000000')?'10.75-11.25':
+             (tenure == 'tenure4' && range == '100000000- 200000000')?'11.25-12.50':
+             (tenure == 'tenure4' && range == '200Above')?'12.50-14.00':
+             (tenure == 'tenure5' && range == '250000- 500000')? '4.25':
+             (tenure == 'tenure5' && range == '500000- 1000000')?'4.25':
+             (tenure == 'tenure5' && range == '1000000- 3000000')?'4.25-4.50':
+             (tenure == 'tenure5' && range == '3000000- 5000000')?'4.75-5.25':
+             (tenure == 'tenure5' && range == '5000000- 10000000')?'5.25-6.25':
+             (tenure == 'tenure5' && range == '10000000- 50000000')?'6.75-9.75':
+             (tenure == 'tenure5' && range == '50000000- 100000000')?'10.75-11.25':
+             (tenure == 'tenure5' && range == '100000000- 200000000')?'11.25-12.50':
+             (tenure == 'tenure5' && range == '200Above')?'12.50-14.00':''
+            
+
+             }}
+</p>
+
+
+      </ion-list>
+      <button ion-button full class="calculate" [disabled]="!((r != null || range != null || tenure != null || p !=null)
+      &&  (
+       (tenure == 'tenure0'  && u < 30 && range == '250000- 500000' && r==1.00 ) || 
+       (tenure == 'tenure0'  && u < 30 && range == '500000- 1000000' && r==1.50 ) ||
+       (tenure == 'tenure0'  && u < 30 && range == '1000000- 3000000' && r==2.00 )  ||
+       (tenure == 'tenure0'  && u < 30 && range == '3000000- 5000000' && r==2.50 ) ||
+       (tenure == 'tenure0'  && u < 30 && range == '5000000- 10000000' && r==3.00 ) ||
+       (tenure == 'tenure0'  && u < 30 && range == '10000000- 50000000' && r==4.00) ||
+       (tenure == 'tenure0'  && u < 30 && range == '50000000- 100000000' && r==6.00 ) ||
+       (tenure == 'tenure0'  && u < 30 && range == '100000000- 200000000' && r==7.50) ||
+       (tenure == 'tenure0'  && u < 30 && range == '200Above' && r==8.50) ||
+       (tenure == 'tenure1' && range == '250000- 500000' && r==4.25) || 
+       (tenure == 'tenure1' && range == '500000- 1000000' && r==4.25) ||
+       (tenure == 'tenure1' && range == '1000000- 3000000' && r >= 4.25 && r <=4.25 )  ||
+       (tenure == 'tenure1' && range == '3000000- 5000000' && r >= 4.25 && r <=4.75 ) ||
+       (tenure == 'tenure1' && range == '5000000- 10000000' && r >= 4.75 && r <=5.75 ) ||
+       (tenure == 'tenure1' && range == '10000000- 50000000' && r >= 6.00 && r <=9.00 ) ||
+       (tenure == 'tenure1' && range == '50000000- 100000000' && r >= 9.75 && r <=10.50 ) ||
+       (tenure == 'tenure1' && range == '100000000- 200000000' && r >= 11.25 && r <=12.25 ) ||
+       (tenure == 'tenure1' && range == '200Above' && r >= 12.50 && r <=13.00 ) ||
+       (tenure == 'tenure2' && range == '250000- 500000' && r==4.25 ) || 
+       (tenure == 'tenure2' && range == '500000- 1000000' && r==4.25 ) ||
+       (tenure == 'tenure2' && range == '1000000- 3000000' && r >= 4.25 && r <=4.25 )  ||
+       (tenure == 'tenure2' && range == '3000000- 5000000' && r >= 4.50 && r <=5.00) ||
+       (tenure == 'tenure2' && range == '5000000- 10000000' && r >= 5.00 && r <=6.00 ) ||
+       (tenure == 'tenure2' && range == '10000000- 50000000' && r >= 6.25 && r <=9.25 ) ||
+       (tenure == 'tenure2' && range == '50000000- 100000000' && r >=10.00 && r <=10.75 ) ||
+       (tenure == 'tenure2' && range == '100000000- 200000000' && r >= 11.50 && r <=12.50 ) ||
+       (tenure == 'tenure2' && range == '200Above' && r >= 12.75 && r <=14.25 ) ||
+       (tenure == 'tenure3' && range == '250000- 500000' && r==4.25) || 
+       (tenure == 'tenure3' && range == '500000- 1000000' && r==4.25) ||
+       (tenure == 'tenure3' && range == '1000000- 3000000' && r >= 4.25 && r <=4.50 )  ||
+       (tenure == 'tenure3' && range == '3000000- 5000000' && r >= 4.75 && r <=5.25 ) ||
+       (tenure == 'tenure3' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+       (tenure == 'tenure3' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+       (tenure == 'tenure3' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+       (tenure == 'tenure3' && range == '100000000- 200000000' && r >= 13.00 && r <=14.50 ) ||
+       (tenure == 'tenure3' && range == '200Above' && r >= 14.50 && r <=16.00 ) ||
+       (tenure == 'tenure4' && range == '250000- 500000' && r==4.25 ) || 
+       (tenure == 'tenure4' && range == '500000- 1000000' && r==4.25) ||
+       (tenure == 'tenure4' && range == '1000000- 3000000' && r >= 4.25 && r <=4.50 )  ||
+       (tenure == 'tenure4' && range == '3000000- 5000000' &&  r >= 4.75 && r <=5.25 ) ||
+       (tenure == 'tenure4' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+       (tenure == 'tenure4' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+       (tenure == 'tenure4' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+       (tenure == 'tenure4' && range == '100000000- 200000000' && r >= 11.25 && r <=12.50 ) ||
+       (tenure == 'tenure4' && range == '200Above' && r >= 12.50 && r <=14.00 ) ||
+       (tenure == 'tenure5' && range == '250000- 500000' && r==4.25 ) || 
+       (tenure == 'tenure5' && range == '500000- 1000000' && r==4.25) ||
+       (tenure == 'tenure5' && range == '1000000- 3000000' &&  r >= 4.25 && r <=4.50 )  ||
+       (tenure == 'tenure5' && range == '3000000- 5000000' &&  r >= 4.75 && r <=5.25 ) ||
+       (tenure == 'tenure5' && range == '5000000- 10000000' && r >= 5.25 && r <=6.25 ) ||
+       (tenure == 'tenure5' && range == '10000000- 50000000' && r >= 6.75 && r <=9.75 ) ||
+       (tenure == 'tenure5' && range == '50000000- 100000000' && r >= 10.75 && r <=11.25 ) ||
+       (tenure == 'tenure5' && range == '100000000- 200000000' && r >= 11.25 && r <=12.50 ) ||
+       (tenure == 'tenure5' && range == '200Above' && r >= 12.50 && r <=14.00 ) )
+        && ( (range == '250000- 500000' && p >= 250000 && p <=500000)
+        || (range == '500000- 1000000' && p >= 500000 && p <=1000000) || (range == '1000000- 3000000' && p >= 1000000 && p <=3000000) || 
+        (range == '3000000- 5000000' && p >= 3000000 && p <=5000000)|| (range == '5000000- 10000000' && p >= 5000000 && p <=10000000) ||
+         (range == '10000000- 50000000' && p >= 10000000 && p <=50000000)|| (range == '50000000- 100000000' && p >= 50000000 && p <=100000000)||
+          (range == '100000000- 200000000' && p >= 100000000 && p <=200000000)||(range == '200Above' && p >= 200)
+                    ))"
+    (click)="calculateInterest()">Calculate</button>
+
+
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="isSubmitted">
+    <ion-card>
+      <ion-card-header text-center color="primary">RESULT</ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="row1">
+            <ion-col col-6>
+              <p>Interest</p>
+            </ion-col>
+            <ion-col col-6>
+              <p>₦{{SI | number}}</p>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="row2">
+              <ion-col col-6>
+                <p>Nominal Interest</p>
+              </ion-col>
+              <ion-col col-6>
+                <p>₦{{NI | number}}</p>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+
+
+</ion-content>

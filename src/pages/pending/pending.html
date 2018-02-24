@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>Pending Leads</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let item of leadsArray">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2>
+            <ion-avatar item-start>
+              <img src="assets/images/logo2.PNG">
+            </ion-avatar>
+          </ion-col>
+          <ion-col col-10 (click)="itemTapped(item)">
+            <h2 text-uppercase style="white-space:normal">{{item.lName}}</h2>
+            <p style="white-space:normal">{{item.lProducts.productName}}</p>
+            <span style="color:orange">STATUS:{{item.emailstatus}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="addLead()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

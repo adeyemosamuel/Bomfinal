@@ -1,0 +1,52 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Leads Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <div>
+        <ion-list>
+          <ion-item style="white-space:normal;  font-size:13px;">
+            <ion-icon name="ios-person" item-start></ion-icon>
+            Name: {{selectedItem.lName}}
+          </ion-item>
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-briefcase" item-start></ion-icon>
+            Occupation: {{selectedItem.occupation}}
+          </ion-item>
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-time" item-start></ion-icon>
+            Date of Birth: {{selectedItem.dob}} 
+          </ion-item>
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-people" item-start></ion-icon>
+            Gender: {{selectedItem.gender}}
+          </ion-item>
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-contact" item-start></ion-icon>
+            Marital Status: {{selectedItem.maritalStatus}}
+          </ion-item>
+    
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-call" item-start></ion-icon>
+            Phone Number: {{selectedItem.phoneNumber}}
+          </ion-item>
+    
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-mail" item-start></ion-icon>
+            E-mail Address: {{selectedItem.emailAddress}}
+          </ion-item>
+    
+          <ion-item style="white-space:normal; font-size:13px;">
+            <ion-icon name="ios-locate" item-start></ion-icon>
+            Address: {{selectedItem.address}}
+          </ion-item>
+        </ion-list>
+      </div>
+
+</ion-content>

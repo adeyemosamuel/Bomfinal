@@ -1,0 +1,14 @@
+{
+  "name": "fullbom",
+  "app_id": "",
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://10.0.33.73:9000/api"
+    }
+  ],
+  "integrations": {
+    "cordova": {}
+  }
+}

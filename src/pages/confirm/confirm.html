@@ -1,0 +1,162 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Confirm New Account</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content no-padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img [src]="photo" class="img" (click)="capturePhoto()">
+        <p text-center>Photo</p>
+      </ion-col>
+
+      <ion-col>
+        <img [src]="mandate" class="img" (click)="captureMandate()">
+        <p text-center>Signature</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item-group>
+    <ion-item-divider>Basic Info</ion-item-divider>
+    <ion-item>
+      <ion-label fixed>Title</ion-label>
+      <ion-input disabled="true" [(ngModel)]="title" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>First Name</ion-label>
+      <ion-input disabled="true" [(ngModel)]="firstName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Middle Name</ion-label>
+      <ion-input disabled="true" [(ngModel)]="middleName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Last Name</ion-label>
+      <ion-input disabled="true" [(ngModel)]="lastName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Gender</ion-label>
+      <ion-input disabled="true" [(ngModel)]="gender" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Marital Status</ion-label>
+      <ion-input disabled="true" [(ngModel)]="_relStatus" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Occupation</ion-label>
+      <ion-input disabled="true" [(ngModel)]="occup" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Date of Birth</ion-label>
+      <ion-input disabled="true" [(ngModel)]="dob"></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>More Info</ion-item-divider>
+    <ion-item>
+      <ion-label fixed>Phone No</ion-label>
+      <ion-input disabled="true" [(ngModel)]="phoneNum"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Email</ion-label>
+      <ion-input disabled="true" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Address</ion-label>
+      <ion-input disabled="true" [(ngModel)]="address" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>State</ion-label>
+      <ion-input disabled="true" [(ngModel)]="_state" text-uppercase></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>EC Details</ion-item-divider>
+    <ion-item>
+      <ion-label fixed>EC</ion-label>
+      <ion-input disabled="true" [(ngModel)]="ec" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>RM</ion-label>
+      <ion-input disabled="true" [(ngModel)]="rm" text-uppercase></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>Account Details</ion-item-divider>
+    <ion-item>
+      <ion-label fixed>BVN</ion-label>
+      <ion-input disabled="true" [(ngModel)]="bvn" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Product Code</ion-label>
+      <ion-input disabled="true" [(ngModel)]="prodCode" text-uppercase></ion-input>
+    </ion-item>
+
+    <!--<ion-item>
+      <ion-label fixed>Opening Amount</ion-label>
+      <ion-input disabled="true" [(ngModel)]="acctBal"></ion-input>
+    </ion-item>-->
+  </ion-item-group>
+
+  <ion-item-group *ngIf="showInfo">
+    <ion-item-divider>Additional Details</ion-item-divider>
+    <ion-item>
+      <ion-label fixed>Place of Birth</ion-label>
+      <ion-input disabled="true" [(ngModel)]="pob" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>State of Origin</ion-label>
+      <ion-input disabled="true" [(ngModel)]="_stateOfOrigin" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>LGA</ion-label>
+      <ion-input disabled="true" [(ngModel)]="lga" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Next of Kin</ion-label>
+      <ion-input disabled="true" [(ngModel)]="nextOfKin" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Kin Relationship</ion-label>
+      <ion-input disabled="true" [(ngModel)]="kinRelationship" text-uppercase></ion-input>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item>
+      <button ion-button full (click)="submit()" id="submit">Submit</button>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>

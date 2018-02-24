@@ -1,0 +1,74 @@
+.page-login {
+    
+    background-color: map-get($colors, light);
+
+    ion-item {
+        background-color: transparent !important;
+    }
+
+    .first-div{
+        button{
+            color: white;
+            text-transform: capitalize;
+            font-size: 14px;
+        }
+
+        .img{
+            width: 250px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            margin-bottom: 100px;
+        }
+
+        #first-first-div {
+            margin-top: 0px;
+            background-color: rgba(71,169,60,0.3);
+        }
+        padding-top: 50px;
+        background-image: url('../assets/images/login.png');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .second-div{
+        ion-icon{
+            font-size: 1.5em;
+        }
+
+        ion-item{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        ion-item:first-child{
+            border-bottom: 1px solid lightgrey;
+        }
+
+        ion-item:last-child{
+            border-bottom: none;
+        }
+
+        background-color: white;
+    }
+
+   .last-div{
+        button{
+            border: 4px solid #fcfcfa;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            text-transform: capitalize;
+            font-size: 16px;
+        }
+
+        ion-item{
+            text-align: center;
+        }
+
+        padding-top: 5px;
+    }
+
+}

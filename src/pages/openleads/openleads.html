@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Leads Management</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid class="lead">
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let item of leadspending" class="pending" (click)="pendingLeads()">
+          <img class="img_pending" src="assets/images/hourglass.png">
+          <p class="text" text-center style="font-weight: light; font-size:25px;  color: white; white-space:normal;">{{item}}</p>
+          <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">PENDING</p>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let item of leadsdelivered" class="delivered" (click)="deliveredLeads()">
+          <img class="img_delivered" src="assets/images/checked3.png">
+          <p class="text" text-center style="font-weight: light; font-size:25px;  color: white; white-space:normal;"> {{item}}</p>
+          <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">DELIVERED</p>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+</ion-content>

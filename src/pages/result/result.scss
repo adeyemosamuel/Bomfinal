@@ -1,0 +1,36 @@
+page-result {
+  background-color: white;
+  .img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 200px;
+  }
+  #bottom-button {
+    position: fixed;
+    bottom: 0px;
+  }
+  ion-label {
+    font-size: 18px !important;
+    color: grey !important;
+    font-weight: bold !important;
+  }
+  ion-input {
+    color: map-get($colors, primary) !important;
+    font-weight: bold !important;
+    font-size: 22px !important;
+  }
+  #newAccount {
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid map-get($colors, primary);
+    font-weight: bold;
+  }
+  #goodMsg {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}

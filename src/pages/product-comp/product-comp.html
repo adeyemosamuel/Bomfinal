@@ -1,0 +1,59 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title style="white-space:normal">Product Compendium</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="searchModal()"><ion-icon name="ios-search"></ion-icon></button>
+    </ion-buttons>
+
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="products">
+        CATEGORIES
+      </ion-segment-button>
+      <ion-segment-button value="sectors">
+        SECTORS
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div [ngSwitch]="segment">
+
+    <ion-card class="card">
+      <ion-list *ngSwitchCase="'products'">
+        <ion-item *ngFor="let item of data; let i = index" (click)="productsByCategory(item,item.categoryName)">
+          <ion-avatar item-start>
+            <img class="img" src="assets/images/logo4.png">
+          </ion-avatar>
+          <p text-uppercase style="white-space:normal; color:white;"><b>{{item.categoryName}}</b></p>
+          <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+
+      </ion-list>
+    </ion-card>
+
+    <ion-card class="card">
+      <ion-list *ngSwitchCase="'sectors'">
+        <ion-item *ngFor="let item of sectors; let i = index" (click)="productsBySector(item,item.sectorName)">
+          <ion-avatar item-start>
+            <img class="img" src="assets/images/logo4.png">
+          </ion-avatar>
+          <p style="white-space:normal; color:white;"><b>{{item.sectorName}}</b></p>
+          <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+        </ion-item>
+
+      </ion-list>
+    </ion-card>
+  </div>
+ 
+  <div>
+    <img class="logo" src="assets/logo.png">
+  </div>
+
+</ion-content>

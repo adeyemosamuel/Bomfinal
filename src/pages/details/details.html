@@ -1,0 +1,101 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>New Account</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+<ion-item-group>
+  <ion-item>
+    <ion-label floating>BVN</ion-label>
+    <ion-input [(ngModel)]="bvn" maxlength="11"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* Phone Number</ion-label>
+    <ion-input [(ngModel)]="phoneNum" type="tel" maxlength="11"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input [(ngModel)]="email" type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* Address</ion-label>
+    <ion-input [(ngModel)]="address" text-uppercase></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* State</ion-label>
+    <ion-select [(ngModel)]="state">
+      <ion-option *ngFor="let s of stateData" [value]="s.value">{{s.label}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label floating>* EC</ion-label>
+    <ion-select [(ngModel)]="ec">
+      <ion-option *ngFor="let e of brancheData" [value]="e.branchcode">{{e.branchname}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* RM</ion-label>
+    <ion-select [(ngModel)]="rm">
+      <ion-option *ngFor="let d of ecData | Rmfilter: ec" [value]="d.rm">{{d.rm}}</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item>
+    <ion-label floating>* Product</ion-label>
+    <ion-select [ngModel]="productCode" (ngModelChange)="productChange($event)">
+      <ion-option *ngFor="let p of productData" [value]="p.value">{{p.label}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* Channels</ion-label>
+    <ion-select [(ngModel)]="channel" multiple="true">
+      <ion-option *ngFor="let c of channelData | orderBy" [disabled]="c.checked" [value]="c.value">{{c.label}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>* Pending Document</ion-label>
+    <ion-select [(ngModel)]="pendingDoc" multiple="true">
+      <ion-option *ngFor="let d of penDocData" [value]="d.label">{{d.value}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <!--<ion-item>
+    <ion-label floating>Amount</ion-label>
+    <ion-input type="number" [(ngModel)]="acctBal"></ion-input>
+  </ion-item>-->
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item>
+    <button ion-button full large id="next-button" (click)="next()">Next</button>
+  </ion-item>
+</ion-item-group>
+
+</ion-content>

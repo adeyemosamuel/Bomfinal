@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>Select a Product</ion-title>
+
+    <ion-buttons start>
+      <button ion-button (click)="selectCancel()">
+            Cancel
+          </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button (click)="selectDone()">
+          Done
+        </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>   
+
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list radio-group [(ngModel)]="products">
+    <ion-item  style="color:limegreen; white-space:normal; font-weight:lighter; " no-lines *ngFor="let e of data">
+      <ion-label>{{e.productName}}</ion-label>
+      <ion-radio [value]="e.productName + ',' + e.id"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>New Account</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+        <ion-icon name="md-more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+
+  <ion-item-group>
+    <ion-item>
+      <ion-label floating>* Place of Birth</ion-label>
+      <ion-input type="text" [(ngModel)]="placeOfBirth" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Mother's Maiden Name</ion-label>
+      <ion-input type="text" [(ngModel)]="motherMaidenName" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* State of Origin</ion-label>
+      <ion-select class="option" [(ngModel)]="stateOfOrigin">
+        <ion-option class="option" *ngFor="let s of stateData" [value]="s.value">{{s.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* LGA</ion-label>
+      <ion-select [(ngModel)]="lga">
+        <ion-option *ngFor="let l of lgaData | lgafilter: stateOfOrigin" [value]="l.label">{{l.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider></ion-item-divider>
+
+    <ion-item>
+      <ion-label stacked>* Next of Kin</ion-label>
+      <ion-input placeholder="Surname first" type="text" [(ngModel)]="nextOfKin" text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>* Relationship Type</ion-label>
+      <ion-select [(ngModel)]="kinRelationship">
+        <ion-option *ngFor="let k of kinTypeData" [value]="k.value">{{k.label}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item>
+      <button ion-button full large id="next-button" (click)="next()">Next</button>
+    </ion-item>
+  </ion-item-group>
+
+</ion-content>

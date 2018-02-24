@@ -1,0 +1,46 @@
+<ion-header>
+  
+    <ion-navbar color="primary">
+      <ion-title>{{title}}</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="shareInfo()"><ion-icon name="md-share"></ion-icon></button>
+          <button ion-button icon-only (click)="popover($event)">
+            <ion-icon name="md-more"></ion-icon>
+          </button>
+         
+        </ion-buttons>
+    </ion-navbar>
+    <ion-item-divider no-lines text-left class="div" style="white-space:normal; font-weight: light; font-size: 18px; color: black;">{{data.productName}}</ion-item-divider>
+  
+  
+  
+  </ion-header>
+  
+   
+  
+  <ion-content padding style="background-color:#fff"> 
+  
+    <strong >DESCRIPTION</strong>
+    <p style="font-weight: light; white-space:normal;">{{data.productDescription}}</p>
+  
+    <strong >FEATURES</strong>
+  
+    <ion-item no-lines>
+  
+      <ul>
+        <li *ngFor="let d of data.peligibility" style="font-weight: light; white-space:normal;">{{d.eligibilityName}}</li>
+      </ul>
+    </ion-item>
+  
+    <strong>BENEFITS</strong>
+  
+    <ion-item no-lines>
+      <ul>
+      <li *ngFor="let b of data.pbenefits" style="font-weight: light; white-space:normal;">{{b.benefitsName}}</li>
+    </ul>
+    </ion-item> 
+  
+    <ion-fab right bottom>
+      <button ion-fab color="primary" (click)="addLead()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+  </ion-content>

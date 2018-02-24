@@ -1,0 +1,97 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title text-center style="text-transform:uppercase">Leads Form</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="popover($event)">
+              <ion-icon name="md-more"></ion-icon>
+            </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label style="color:#4fc143" floating>Name</ion-label>
+      <ion-input [(ngModel)]="nameOfUser"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143" floating>Occupation</ion-label>
+      <ion-input [(ngModel)]="occupation"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143">Date of Birth</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="MMM DD YYYY" [(ngModel)]="dateOfBirth"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143">Gender</ion-label>
+      <ion-select [(ngModel)]="gender">
+        <ion-option value="f">Female</ion-option>
+        <ion-option value="m">Male</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143">Marital Status</ion-label>
+      <ion-select [(ngModel)]="maritalStatus">
+        <ion-option value="single">Single</ion-option>
+        <ion-option value="married">Married</ion-option>
+        <ion-option value="divorced">Divorced</ion-option>
+        <ion-option value="widowed">Widowed</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143" floating>Phone Number</ion-label>
+      <ion-input [(ngModel)]="phoneNum" type="tel" maxlength="11"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143" floating>E-mail Address</ion-label>
+      <ion-input [(ngModel)]="emailAddress"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color:#4fc143" floating>Address</ion-label>
+      <ion-input [(ngModel)]="address"></ion-input>
+    </ion-item>
+
+    <div>
+      <ion-grid>
+
+        <ion-row>
+          <ion-col col-3>
+
+            <p style="white-space:normal; color:limegreen;">Select Product</p>
+          </ion-col>
+          <ion-col col-9>
+            <ion-item no-lines style="color:limegreen; white-space:normal; font-weight:lighter;" (click)="selectProductModal()">
+              <p style="color:limegreen">{{products}}</p>
+              <ion-icon class="icon" item-end name="ios-options"></ion-icon>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+
+      </ion-grid> 
+    </div>
+    <h6 style="color:#4fc143;">Comments</h6>
+    <div class="margin">
+      <ion-item>
+        <ion-textarea class="comments" [(ngModel)]="comments" rows="3" placeholder="Enter Comments"></ion-textarea>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-title text-center (click)="savedetails()">SUBMIT</ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,48 @@
+<ion-content>
+
+  <ion-list no-lines>
+    <ion-item>
+      <div class="welcome">
+        <b>welcome&nbsp;&nbsp;{{Username}}</b>
+      </div>
+
+      <ion-row>
+        <ion-col col-6 text-center>
+          <ion-card class="account" (click)="gotoNewPage('AccountPage')">
+            <img class="img_account" src="assets/images/account4.png">
+            <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">Account Opening</p>
+          </ion-card>
+        </ion-col>
+
+        <ion-col col-6 text-center>
+          <ion-card class="bank" (click)="gotoNewPage('ProductCompPage')">
+            <img class="img_bank" src="assets/images/savingswhite.png" />
+            <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">Products Compendium</p>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-6 text-center>
+          <ion-card class="lead" (click)="gotoNewPage('OpenleadsPage')">
+            <img class="img_lead" src="assets/images/graphwhite.png" />
+            <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">Leads Management</p>
+          </ion-card>
+        </ion-col>
+
+        <ion-col col-6 text-center>
+          <ion-card class="loan" (click)="gotoNewPage('CalculatorHomePage')">
+            <img class="img_loan" src="assets/images/loanwhite.png" />
+            <p class="text" text-center style="font-weight: light;  color: white; white-space:normal;">Interest Rate Calculator</p>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <div class="findus" (click)="gotoNewPage('Atm2Page')">
+        <img class="img_findus" src="assets/images/finduswhite.png" style="height: 30px;width: 30px;" />
+        <p class="find" text-center style="font-weight: light; text-align:center;  color: white; white-space:normal;">Locate Us</p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
